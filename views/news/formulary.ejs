@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1><%= locals.id ? 'Edit' : 'Add new' %> post</h1>
+
+    <form action="<%= locals.id ? '/edit' : '/new' %>" method="POST">
+        <% if (locals.id) { %>
+            <input type="hidden" name="id" value="<%= id %>">
+        <% } %>
+
+        <label for="">Name:</label>
+        <input type="text" name="postname" value="<%= locals.postname ? postname : '' %>">
+
+        <% if (locals.errors && locals.errors.postname) { %>
+        <p>
+            <%= errors.postname %>
+        </p>
+        <% } %>
+
+        <br>
+
+        <label for="">Description:</label>
+        <input type="text" name="description" value="<%= locals.description ? description : '' %>">
+
+        <% if (locals.errors && locals.errors.description) { %>
+        <p>
+            <%= errors.description %>
+        </p>
+        <% } %>
+
+        <br>
+        <button>Save</button>
+    </form>
+    
+</body>
+</html>
