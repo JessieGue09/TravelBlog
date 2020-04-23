@@ -13,7 +13,7 @@ Picture.init({
         type: Sequelize.STRING,
         allowNull: false
     },
-    descripcion: {
+    description: {
         type: Sequelize.STRING,
         allowNull: false
     }

@@ -13,8 +13,8 @@ router.post('/edit', travelController.editPostPost);
 
 router.get('/delete/:id', travelController.deletePost);
 
-router.get('/more/:id', travelController.lookMore);
+router.get('/detail/:id', travelController.lookMore);
 
-router.get('/pictures/:id', travelController.addPicture);
+router.post('/addPicture/', travelController.addPictures);
 
 module.exports = router;

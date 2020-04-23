@@ -2,7 +2,7 @@ let controller = {};
 
 
 const { Travel } = require('./../models/travel');
-const { Photo } = require('.././models/picture');
+const { Picture } = require('.././models/picture');
 
 controller.travels = (req, res, next) => {
 
@@ -203,16 +203,16 @@ controller.lookMore = (req, res, next) => {
 
             let travel = await Travel.findByPk(id);
 
-            let pictures = await travel.getPicture();
+            let pictures = await travel.getPictures();
 
-            res.render('news/more', {
+            res.render('news/detail', { 
                 travel: travel,
                 pictures: pictures,
             });
         } catch (err) {
             console.error('Error en consulta de detalle', err);
 
-            res.render('news/more', {
+            res.render('news/detail', {
                 travel: {},
                 pictures: []
             });
@@ -220,7 +220,7 @@ controller.lookMore = (req, res, next) => {
     })();
 };
 
-controller.addPicture = (req, res, next) => {
+controller.addPictures = (req, res, next) => {
     (async () => {
         try {
             let id = req.body.id;
@@ -238,39 +238,9 @@ controller.addPicture = (req, res, next) => {
 
             await Picture.create(picture);
 
-            res.redirect('/more/' + id);
+            res.redirect('/detail/' + id);
         } catch (err) {
-            console.error('Error en consulta de detalle', err);
-
-            res.render('news/more', {
-                travel: {},
-                pictures: []
-            });
-        }
-    })();
-};
-
-controller.read = (req, res, next) => {
-    (async () => {
-        try {
-            let id = req.params.id;
-
-            let travel = await Travel.findByPk(id);
-
-            let pictures = await producto.getPicture();
-
-            res.render('news/detail', {
-                travel: travel,
-                pictures: pictures
-            });
-            
-        } catch (err) {
-            console.error('Error en consulta de detalle', err);
-
-            res.render('news/detail', {
-                travel: {},
-                pictures: []
-            });
+          //Picture
         }
     })();
 };
