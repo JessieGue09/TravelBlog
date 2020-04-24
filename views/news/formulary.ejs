@@ -1,42 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 </head>
-<body>
 
-    <h1><%= locals.id ? 'Edit' : 'Add new' %> post</h1>
+<body class="body">
 
-    <form action="<%= locals.id ? '/edit' : '/new' %>" method="POST">
-        <% if (locals.id) { %>
-            <input type="hidden" name="id" value="<%= id %>">
-        <% } %>
-
-        <label for="">Name:</label>
-        <input type="text" name="postname" value="<%= locals.postname ? postname : '' %>">
-
-        <% if (locals.errors && locals.errors.postname) { %>
-        <p>
-            <%= errors.postname %>
-        </p>
-        <% } %>
-
-        <br>
-
-        <label for="">Description:</label>
-        <input type="text" name="description" value="<%= locals.description ? description : '' %>">
-
-        <% if (locals.errors && locals.errors.description) { %>
-        <p>
-            <%= errors.description %>
-        </p>
-        <% } %>
-
-        <br>
-        <button>Save</button>
-    </form>
+    <div class="card" style="width: 100%rem;">
+        <div class="card-body">
+            <!-- Open navbar-->
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Go back</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <!--End navbar-->
+            <h1><%= locals.id ? 'Edit' : 'Add new' %> post</h1>
+            <h6 class="card-subtitle mb-2 text-muted">Tell the whole world about your travels and adventures. Sure they are fantastic!</h6>
+            
+            <div class="container-box">
+                <form action="<%= locals.id ? '/edit' : '/new' %>" method="POST">
+                    <% if (locals.id) { %>
+                    <input type="hidden" name="id" value="<%= id %>" size="100%">
+                    <% } %>
+            
+                    <label class="lbtittle" for="">Tittle:</label> <br>
+                    <input class="tittle" type="text" name="postname" value="<%= locals.postname ? postname : '' %>">
+            
+                    <% if (locals.errors && locals.errors.postname) { %>
+                    <small id="emailHelp" class="form-text text-muted">
+                        <%= errors.postname %>
+                    </small>
+                    <% } %>
+            
+                    <br>
+            
+                    <label class="lbtittle" for="">Description:</label> <br>
+                    <input class="desc" type="text" name="description" value="<%= locals.description ? description : '' %>">
+            
+                    <% if (locals.errors && locals.errors.description) { %>
+                    <small id="emailHelp" class="form-text text-muted">
+                        <%= errors.description %>
+                    </small>
+                    <% } %>
+            
+                    <br>
     
+                    <label class="lbtittle" for="">Tell us you stoty:</label> <br>
+                    <input class="story" type="text" name="story" value="<%= locals.story ? story : '' %>">
+            
+                    <% if (locals.errors && locals.errors.story) { %>
+                    <p >
+                        <%= errors.story %>
+                    </p>
+                    <% } %>
+            
+                    <br>
+                    <button class="btn btn-success">Save</button>
+                    <br>
+               
+
+                </form>
+
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
 </body>
+
 </html>

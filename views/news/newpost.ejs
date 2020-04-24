@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="/stylesheets/index.css">
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -12,51 +14,66 @@
 
 </head>
 
-<body>
+<body class="body">
 
+  <!-- Recorrido a la linea 82
   <h1>
-    <!-- ejsout -->
-    <%= titulo %>
+    ejsout
+    <%= //titulo %>
   </h1>
   <a href="/new">Add new Post</a>
   <ul>
-    <!-- ejseach -->
-    <% travels.forEach(travel => { %>
-    <li>
-      <p>
-        <%= travel.postname %>
-        <br>
-        <%= travel.description %>
-      </p>
-      <!-- Fecha de creacion de registro en la base de datos -->
-      <p>
-        <%= travel.createdAt %>
-      </p>
-      <a href="/detail/<%= travel.id %> ">Look more</a>
-      <a href="/edit/<%= travel.id %> ">Edit post</a>
-      <a href="/delete/<%= travel.id %> ">Delete post</a>
-    </li>
-    <% }) %>
-
+    <div id="document">
+      ejseach
+      <% //travels.forEach(travel => { %>
+      <li>
+        <p>
+          <%= //travel.postname %>
+          <br>
+          <%= //travel.description %>
+        </p>
+            Fecha de creacion de registro en la base de datos
+        <p>
+          <%= //travel.createdAt %>
+        </p>
+        <a href="/detail/<%= //travel.id %> ">Look more</a>
+        <a href="/edit/<%= //travel.id %> ">Edit post</a>
+        <a href="/delete/<%= //travel.id %> ">Delete post</a>
+      </li>
+      <% //}) %>
+    </div>
+-->
+  <div>
+    <!--Open principal card-->
     <div class="card" style="width: 100%;">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <!-- Open navbar-->
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a type="button" class="btn btn-outline-success" class="nav-link active" href="/new">Add new Post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+             <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+          </li>
+        </ul>
+        <!--End navbar-->
+        <!--Open tittle-->
+        <h1 class="card-title">
+          <!-- ejsout -->
+          <%= titulo %>
+        </h1>
+        <!--End tittle-->
+
+        <!--Open lateral menu-->
         <div class="row">
-          <ul class="nav justify-content-end">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Active</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
           <div class="col-4">
+            <!-- Colum -->
             <div class="list-group" id="list-tab" role="tablist">
               <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
                 href="#list-home" role="tab" aria-controls="home">Home</a>
@@ -68,31 +85,64 @@
                 href="#list-settings" role="tab" aria-controls="settings">Settings</a>
             </div>
           </div>
+          <!--End colum-->
+
           <div class="col-8">
-            <div class="tab-content" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...
+            <!-- Post box-->
+            <div class="tab-content" id="nav-tabContent" class="ex3">
+              <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"
+                data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+                <div href="list-home">
+                  <!-- ejseach -->
+                  <% travels.forEach(travel => { %>
+                  <li>
+                    <h3>
+                      <%= travel.postname %>
+                    </h3>
+                    <br>
+                    <p>
+                      <%= travel.description %>
+                    </p>
+                    <!-- Fecha de creacion de registro en la base de datos -->
+                    <p>
+                      <%= travel.createdAt %>
+                    </p>
+                    <a class="btn btn-primary" href="/detail/ <%= travel.id %> " role="button">Look more</a>
+                    <a class="btn btn-primary" href="/edit/<%= travel.id %> " role="button">Edit post</a>
+                    <a class="btn btn-primary" href="/delete/<%= travel.id %> " role="button">Delete post</a>
+                  </li>
+                  <hr>
+                  <br>
+                  <% }) %>
+                </div>
               </div>
               <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-              <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-              <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+              <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...
+              </div>
+              <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...
+              </div>
             </div>
           </div>
+          <!--End post-->
         </div>
-        
+        <!--End lateral menu-->
+
       </div>
     </div>
 
+  </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
