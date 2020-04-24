@@ -8,7 +8,11 @@ const {sequelize} = require('./config/db')
 require('./models/travel');
 require('./models/picture');
 
+
+require('./config/associations');
+
 //sequelize.sync();
+//sequelize.sync({force: true})
 
 // var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
