@@ -17,4 +17,6 @@ router.get('/detail/:id', travelController.lookMore);
 
 router.post('/addPicture/', travelController.addPictures);
 
+router.post('/addComent', travelController.addComents);
+
 module.exports = router;

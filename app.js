@@ -7,6 +7,7 @@ var logger = require('morgan');
 const {sequelize} = require('./config/db')
 require('./models/travel');
 require('./models/picture');
+require('./models/coment');
 
 
 require('./config/associations');

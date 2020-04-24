@@ -16,6 +16,10 @@
     margin-bottom: 0px;
   }
 
+  .addPhoto {
+    padding: 1.25rem;
+  }
+
   .desc {
     font-weight: bold;
     margin-bottom: 0px;

@@ -6,25 +6,21 @@ const Model = Sequelize.Model;
 const { sequelize } = require('./../config/db');
 
 // Crear modelo
-class Travel extends Model {}
-Travel.init({
+class Coment extends Model {}
+Coment.init({
     //Definir campos del modelo
-    postname: {
+    username: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    description: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    story: {
+    addcoment: {
         type: Sequelize.STRING,
         allowNull: false
     },
 }, {
     sequelize,
-    modelName: 'travel'
+    modelName: 'coment'
 });
 
 // Exportar modelo
-module.exports = { Travel };
+module.exports = { Coment };

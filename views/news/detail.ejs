@@ -35,9 +35,9 @@
             <small id="emailHelp" class="form-text text-muted">Fecha de publicación de travel:
                 <%= travel.createdAt %></small>
             <br>
-            <p class="card-text">Description: <%= travel.description %></p>
+            <p class="card-text">My story: <%= travel.story %></p>
 
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 25rem;">
                 <% pictures.forEach(picture => { %>
                 <img class="card-img-top" src="<%= picture.url %> " alt="Card image cap">
                 <div class="card-body">
@@ -47,21 +47,46 @@
             </div>
 
             <hr>
-            <h3>Agregar foto</h3>
-            <form action="/addPicture" method="POST">
-                <input type="hidden" name="id" value="<%= travel.id %>">
-                <label class="url" for="">Url:</label> <br>
-                <input class="input" type="text" name="url">
-                <br>
-                <label class="desc" for="">Description:</label><br>
-                <input class="input " type="text" name="description">
+            <div class="addPhoto">
+                <h3>Agregar foto</h3>
+                <form action="/addPicture" method="POST">
+                    <input type="hidden" name="id" value="<%= travel.id %>">
+                    <label class="url" for="">Url:</label> <br>
+                    <input class="input" type="text" name="url">
+                    <br>
+                    <label class="desc" for="">Description:</label><br>
+                    <input class="input " type="text" name="description">
 
-                <br>
-                <button class="btn btn-success">Add photo</button>
-            </form>
-            <a href="#" class="card-link">Card link</a>
+                    <br>
+                    <button class="btn btn-success">Add photo</button>
+                </form>
+                <a href="#" class="card-link">Card link</a>
+            </div>
 
+            <div class="cmt">
+                <form action="/addComent" method="POST">
+                <div class="form-group">
+                  <br>
+                  <input type="hidden" name="id" value="<%= travel.id %>">
+                  <input type="text" name="username" class="form-control" id="formGroupExampleInput" placeholder="Name">
+                  <br>
+                  <input type="text" name="addcoment" class="form-control" id="formGroupExampleInput" placeholder="Comment">
+                  <br>
+                  <button role="button" class="btn btn-primary" onclick="">Comment</button>
+                </div>
+              </form>
+            </div>
 
+            <div class="main-cmt">
+                <ul>
+                    <% post.coments.forEach(coment => { %>
+                    <li>
+                        <p class="nombre-cmt"><%= coment.username %>:</p>
+                        <p class="text-cmt"> <%= coment.addcoment %> </p>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
         </div>
     </div>
 
