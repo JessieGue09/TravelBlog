@@ -119,7 +119,7 @@ controller.editPost = (req, res, next) => {
                 id: id,
                 postname: travel.postname,
                 description: travel.description,
-                story: story,
+                story: travel.story,
             });
         } catch (err) {
             //TODO: manejar en caso de error
@@ -153,7 +153,7 @@ controller.editPostPost = (req, res, next) => {
 
             if (!story || story === "") {
                 errors.story = 'Pleas post you story';
-            }travelId
+            }
 
             //En caso de error volver a cargar todo
             if (errors.postname || errors.description || errors.story) {

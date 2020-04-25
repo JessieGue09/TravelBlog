@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Document</title>
+    <title>Posting</title>
 </head>
 
 <body class="body">
@@ -21,12 +21,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Go back</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
+
             </ul>
             <!--End navbar-->
 
@@ -61,32 +56,44 @@
                     <button class="btn btn-success">Add photo</button>
                 </form>
             </div>
+            <hr>
+            <br>
 
-            <div class="cmt">
-                <form action="/addComent" method="POST">
-                    <h2>Add a new comment</h2>
-                <div class="form-group">
-                  <br>
-                  <input type="hidden" name="id" value="<%= travel.id %>">
-                  <input type="text" name="username" class="form-control" id="formGroupExampleInput" placeholder="Name">
-                  <br>
-                  <input type="text" name="addcoment" class="form-control" id="formGroupExampleInput" placeholder="Comment">
-                  <br>
-                  <button role="button" class="btn btn-primary" onclick="">Comment</button>
-                </div>
-              </form>
-            </div>
-
-            <div class="main-cmt">
+            <!-- Vista de comentarios -->
+            <h3>Comments</h3>
+            <br>
+            <div class="card" style="width: 100%">
                 <ul>
                     <% coments.forEach(coment => { %>
                     <li>
-                        <p class="nombre-cmt"><%= coment.username %>:</p>
-                        <p class="text-cmt"> <%= coment.addcoment %> </p>
+                        <h5 class="card-title"><%= coment.username %>:</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><%= coment.addcoment %> </h6>
                     </li>
+                    <hr>
                     <% }) %>
                 </ul>
             </div>
+            <br>
+
+            <!-- Agregar comentarios -->
+            <div class="cmt">
+                <form action="/addComent" method="POST">
+                    <h2>Add a new comment</h2>
+                    <div class="form-group">
+                        <br>
+                        <input type="hidden" name="id" value="<%= travel.id %>">
+                        <input type="text" name="username" class="form-control" id="formGroupExampleInput"
+                            placeholder="Name" style="width: 30%;">
+                        <br>
+                        <input type="text" name="addcoment" class="form-control" id="formGroupExampleInput"
+                            placeholder="Comment" style="width: 30%;">
+                        <br>
+                        <button role="button" class="btn btn-primary" onclick="">Comment</button>
+                    </div>
+                </form>
+            </div>
+
+
         </div>
     </div>
 
