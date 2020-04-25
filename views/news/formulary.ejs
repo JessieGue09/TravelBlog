@@ -63,7 +63,8 @@
                     <br>
     
                     <label class="lbtittle" for="">Tell us you stoty:</label> <br>
-                    <input class="story" type="text" name="story" value="<%= locals.story ? story : '' %>">
+                    <textarea class="form-control" rows="3" name="story"><%= locals.story ? story : '' %></textarea>
+                  
             
                     <% if (locals.errors && locals.errors.story) { %>
                     <p >

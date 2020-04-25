@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="/stylesheets/index.css">
+  <link href="/stylesheets/demo.css" rel="stylesheet" />
+
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -16,53 +18,32 @@
 
 <body class="body">
 
-  <!-- Recorrido a la linea 82
-  <h1>
-    ejsout
-    <%= //titulo %>
-  </h1>
-  <a href="/new">Add new Post</a>
-  <ul>
-    <div id="document">
-      ejseach
-      <% //travels.forEach(travel => { %>
-      <li>
-        <p>
-          <%= //travel.postname %>
-          <br>
-          <%= //travel.description %>
-        </p>
-            Fecha de creacion de registro en la base de datos
-        <p>
-          <%= //travel.createdAt %>
-        </p>
-        <a href="/detail/<%= //travel.id %> ">Look more</a>
-        <a href="/edit/<%= //travel.id %> ">Edit post</a>
-        <a href="/delete/<%= //travel.id %> ">Delete post</a>
-      </li>
-      <% //}) %>
+  <div class='blurred-container'>
+    <div class="motto">
+      <div>Create</div>
+      <div class="border no-right-border" style="font-size: 68px;">A</div>
+      <div class="border" style="font-size: 68px;">New</div>
+      <div>Posibility</div>
+      <a class="btn btn-primary" href="#content" role="button">Show me</a>
     </div>
--->
-  <div>
+  </div>
+
+  <div id="content">
     <!--Open principal card-->
     <div class="card" style="width: 100%;">
       <div class="card-body">
+        <div>
+          <img src="/images/Logo.png" alt="">
+        </div>
+
         <!-- Open navbar-->
         <ul class="nav justify-content-end">
           <li class="nav-item">
             <a type="button" class="btn btn-outline-success" class="nav-link active" href="/new">Add new Post</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-             <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
-          </li>
         </ul>
         <!--End navbar-->
+
         <!--Open tittle-->
         <h1 class="card-title">
           <!-- ejsout -->
@@ -78,9 +59,9 @@
               <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
                 href="#list-home" role="tab" aria-controls="home">Home</a>
               <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
-                href="#list-profile" role="tab" aria-controls="profile">Profile</a>
+                href="#list-profile" role="tab" aria-controls="profile">Most popular</a>
               <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
-                href="#list-messages" role="tab" aria-controls="messages">Messages</a>
+                href="#list-messages" role="tab" aria-controls="messages">Profile</a>
               <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
                 href="#list-settings" role="tab" aria-controls="settings">Settings</a>
             </div>
@@ -116,10 +97,47 @@
                   <% }) %>
                 </div>
               </div>
-              <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+              <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                <div href="list-home">
+                  <!-- ejseach -->
+                  <% travels.forEach(travel => { %>
+                  <li>
+                    <h3>
+                      <%= travel.postname %>
+                    </h3>
+                    <br>
+                    <p>
+                      <%= travel.description %>
+                    </p>
+                    <!-- Fecha de creacion de registro en la base de datos -->
+                    <p>
+                      <%= travel.createdAt %>
+                    </p>
+                    <a class="btn btn-primary" href="/detail/ <%= travel.id %> " role="button">Look more</a>
+                  </li>
+                  <hr>
+                  <br>
+                  <% }) %>
+                </div>
+              </div>
               <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...
               </div>
-              <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...
+              <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                <h1>Sample blog post</h1>
+                <small>24/04/2020 by: Jessica Hernadez</small>
+                <hr>
+                <p>
+                  This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.
+                </p>
+                <p>
+                  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
+                </p>
+                <p>
+                  Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                </p>
+                <p>
+                  Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+                </p>
               </div>
             </div>
           </div>

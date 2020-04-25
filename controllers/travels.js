@@ -153,7 +153,7 @@ controller.editPostPost = (req, res, next) => {
 
             if (!story || story === "") {
                 errors.story = 'Pleas post you story';
-            }
+            }travelId
 
             //En caso de error volver a cargar todo
             if (errors.postname || errors.description || errors.story) {
@@ -224,16 +224,20 @@ controller.lookMore = (req, res, next) => {
 
             let pictures = await travel.getPictures();
 
+            let coments = await travel.getComents();
+
             res.render('news/detail', {
                 travel: travel,
                 pictures: pictures,
+                coments: coments
             });
         } catch (err) {
             console.error('Error en consulta de detalle', err);
 
             res.render('news/detail', {
                 travel: {},
-                pictures: []
+                pictures: [],
+                coments: {},
             });
         }
     })();
@@ -268,8 +272,8 @@ controller.addComents = (req, res, next) => {
     (async () => {
         try {
             let id = req.body.id;
-            let username = req.body.id;
-            let addcoment = req.body.id;
+            let username = req.body.username;
+            let addcoment = req.body.addcoment;
 
             //Crear objeto con estructura de modelo
             let comentACrear = {
@@ -286,6 +290,7 @@ controller.addComents = (req, res, next) => {
             res.redirect('/detail/' + id);
         } catch (err) {
             //Picture
+            console.error('Error en comments:', err);
             res.redirect('/detail/' + id);
         }
     })();

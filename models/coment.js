@@ -15,7 +15,7 @@ Coment.init({
     },
     addcoment: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
 }, {
     sequelize,

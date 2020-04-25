@@ -32,7 +32,7 @@
 
             <h1><%= travel.postname %></h1>
             <h6 class="card-subtitle mb-2 text-muted">Description: <%= travel.description %></h6>
-            <small id="emailHelp" class="form-text text-muted">Fecha de publicación de travel:
+            <small id="emailHelp" class="form-text text-muted">Fecha de publicación del post:
                 <%= travel.createdAt %></small>
             <br>
             <p class="card-text">My story: <%= travel.story %></p>
@@ -60,11 +60,11 @@
                     <br>
                     <button class="btn btn-success">Add photo</button>
                 </form>
-                <a href="#" class="card-link">Card link</a>
             </div>
 
             <div class="cmt">
                 <form action="/addComent" method="POST">
+                    <h2>Add a new comment</h2>
                 <div class="form-group">
                   <br>
                   <input type="hidden" name="id" value="<%= travel.id %>">
@@ -79,7 +79,7 @@
 
             <div class="main-cmt">
                 <ul>
-                    <% post.coments.forEach(coment => { %>
+                    <% coments.forEach(coment => { %>
                     <li>
                         <p class="nombre-cmt"><%= coment.username %>:</p>
                         <p class="text-cmt"> <%= coment.addcoment %> </p>
